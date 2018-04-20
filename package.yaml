@@ -1,0 +1,64 @@
+name:                html-notebook-compiler
+version:             0.1.0.0
+github:              "mouri111/html-notebook-compiler"
+license:             BSD3
+author:              "Masato Mouri"
+maintainer:          "8128jp@gmail.com"
+copyright:           "2018 Masato Mouri"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/mouri111/html-notebook-compiler#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- pandoc >= 2.0 && < 2.2
+- pandoc-types >= 1.17 && < 1.18
+- directory >= 1.3 && < 1.4
+- text >= 1.2 && < 1.3
+- data-default >= 0.7 && < 0.8
+- transformers >= 0.5 && < 0.6
+- aeson >= 1.2 && < 1.3
+- filepath >= 1.4 && < 1.5
+- yaml >= 0.8 && < 0.9
+- bytestring >= 0.10 && < 0.11
+- process >= 1.6 && < 1.7
+- doctemplates >= 0.2 && < 0.3
+- mtl >= 2.2 && < 2.3
+- containers >= 0.5 && < 0.6
+- vector >= 0.12 && < 0.13
+- unordered-containers >= 0.2 && < 0.3
+
+library:
+  source-dirs: src
+
+executables:
+  html-notebook-compiler:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - html-notebook-compiler
+
+tests:
+  html-notebook-compiler-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - html-notebook-compiler
