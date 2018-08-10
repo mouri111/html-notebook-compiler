@@ -172,7 +172,7 @@ build config xs = do
    buildStage3 xs ps meta
 
 relativize :: Int -> T.Text -> T.Text
-relativize d = T.replace "href=\"/" ("href=\"./" <> T.replicate d "../")
+relativize d = (T.replace "href=\"/" ("href=\"./" <> T.replicate d "../")) . (T.replace "src=\"/" ("src=\"./" <> T.replicate d "../"))
 
 mkFileInst :: String -> FilePath -> FilePath -> IO Inst
 mkFileInst templateName fileDir fileName = do
